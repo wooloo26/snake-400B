@@ -1,5 +1,5 @@
 (() => {
-    var d = document, r = Math.random, n = 20, s = 20, snake = [{ x: 10, y: 10 }], dir = { x: 1, y: 0 }, food, ctx = d.getElementById('game').getContext('2d'), respawn = () => food = { x: r() * n | 0, y: r() * n | 0 };
+    var doc = document, rand = Math.random, n = 20, s = 4, snake = [{ x: 10, y: 10 }], dir = { x: 1, y: 0 }, food, ctx = doc.getElementById('g').getContext('2d'), respawn = () => food = { x: rand() * n | 0, y: rand() * n | 0 };
     respawn();
 
 
@@ -11,7 +11,7 @@
         snake.unshift(head);
         head.x == food.x && head.y == food.y ? respawn() : snake.pop();
 
-        ctx.clearRect(0, 0, 400, 400);
+        ctx.clearRect(0, 0, 80, 80);
         ctx.fillStyle = 'red';
         ctx.fillRect(food.x * s, food.y * s, s, s);
         ctx.fillStyle = 'green';
@@ -19,12 +19,9 @@
         ctx.globalAlpha = 1;
     }, 120);
 
-    d.onkeydown = e => {
+    doc.onkeydown = e => {
         let k = { ArrowUp: [0, -1], ArrowDown: [0, 1], ArrowLeft: [-1, 0], ArrowRight: [1, 0] }[e.key];
         if (k && (snake.length < 2 || snake[0].x + k[0] != snake[1].x || snake[0].y + k[1] != snake[1].y))
             dir = { x: k[0], y: k[1] };
     };
 })()
-
-
-
