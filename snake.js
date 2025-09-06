@@ -6,7 +6,7 @@ b = (points, targetPoint) => points.some(point => point.x == targetPoint.x & poi
 p = points => { while (b(points, z = { x: r(), y: r() })); return z }
 n = _ => f = p(s)
 f = p(s)
-e = (point) => c.fillRect(point.x * 1, point.y * 1, 1, 1)
+e = (point) => c.fillRect(point.x, point.y, 1, 1)
 setInterval(_ => {
     h = { x: s[0].x + m[0], y: s[0].y + m[1] }
     if ((h.x | h.y) < 0 | h.x > 8 | h.y > 8 | b(s, h)) v
