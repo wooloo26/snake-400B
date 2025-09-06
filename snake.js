@@ -4,14 +4,13 @@ m = [1, 0]
 r = _ => Math.random() * 9 | 0
 b = (points, targetPoint) => points.some(point => point.x == targetPoint.x & point.y == targetPoint.y)
 p = points => { while (b(points, z = { x: r(), y: r() })); return z }
-n = _ => f = p(s)
 f = p(s)
 e = (point) => c.fillRect(point.x, point.y, 1, 1)
 setInterval(_ => {
     h = { x: s[0].x + m[0], y: s[0].y + m[1] }
     if ((h.x | h.y) < 0 | h.x > 8 | h.y > 8 | b(s, h)) v
     s = [h, ...s]
-    h.x == f.x & h.y == f.y ? n() : s.pop()
+    h.x == f.x & h.y == f.y ? f = p(s) : s.pop()
     c.clearRect(0, 0, 9, 9)
     c.fillStyle = 'red'
     e(f)
