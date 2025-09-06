@@ -16,6 +16,6 @@ setInterval(_ => {
     c.fillStyle = 'red'
     e(f)
     c.fillStyle = 'blue'
-    s.forEach(e)
+    s.map(e)
 }, 99)
 onkeydown = e => (k = { ArrowUp: [0, -1], ArrowDown: [0, 1], ArrowLeft: [-1, 0], ArrowRight: [1, 0] }[e.key]) && (s[1] ? s[0].x + k[0] != s[1].x | s[0].y + k[1] != s[1].y : 1) && (m = k)
