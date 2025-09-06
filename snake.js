@@ -1,20 +1,20 @@
 d = document
-r = () => Math.random() * 9 | 0
-b = (points, z) => points.some(t => t.x == z.x && t.y == z.y)
-p = (points) => {while (b(points, z = { x: r(), y: r() })); return z}
-w = 1
+c = d.getElementById('g').getContext('2d')
 s = [{ x: 1, y: 1 }]
 m = { x: 1, y: 0 }
-c = d.getElementById('g').getContext('2d')
+r = () => Math.random() * 9 | 0
+t = (a, b) => a.x == b.x & a.y == b.y
+b = (points, targetPoint) => points.some(point => t(point, targetPoint))
+p = (points) => { while (b(points, z = { x: r(), y: r() })); return z }
 n = () => f = p(s)
 f = p(s)
-e = (point) => c.fillRect(point.x * w, point.y * w, w, w)
+e = (point) => c.fillRect(point.x * 1, point.y * 1, 1, 1)
 setInterval(() => {
     h = { x: s[0].x + m.x, y: s[0].y + m.y }
     if ((h.x | h.y) < 0 | h.x > 8 | h.y > 8 | b(s, h))
         _
     s = [h, ...s]
-    h.x == f.x & h.y == f.y ? n() : s.pop()
+    t(h, f) ? n() : s.pop()
     c.clearRect(0, 0, 9, 9)
     c.fillStyle = 'red'
     e(f)
