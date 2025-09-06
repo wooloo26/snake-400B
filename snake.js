@@ -1,12 +1,7 @@
 d = document
-g = 9
-r = () => Math.random() * g | 0
+r = () => Math.random() * 9 | 0
 b = (points, z) => points.some(t => t.x == z.x && t.y == z.y)
-p = (points) => {
-    do z = { x: r(), y: r() }
-    while (b(points, z))
-    return z
-}
+p = (points) => {while (b(points, z = { x: r(), y: r() })); return z}
 w = 1
 s = [{ x: 1, y: 1 }]
 m = { x: 1, y: 0 }
@@ -16,10 +11,10 @@ f = p(s)
 e = (point) => c.fillRect(point.x * w, point.y * w, w, w)
 setInterval(() => {
     h = { x: s[0].x + m.x, y: s[0].y + m.y }
-    if ((h.x | h.y) < 0 || h.x >= g || h.y >= g || b(s, h))
+    if ((h.x | h.y) < 0 | h.x > 8 | h.y > 8 | b(s, h))
         _
     s = [h, ...s]
-    h.x == f.x && h.y == f.y ? n() : s.pop()
+    h.x == f.x & h.y == f.y ? n() : s.pop()
     c.clearRect(0, 0, 9, 9)
     c.fillStyle = 'red'
     e(f)
