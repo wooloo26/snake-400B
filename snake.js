@@ -3,8 +3,7 @@ c = d.getElementById('g').getContext('2d')
 s = [{ x: 1, y: 1 }]
 m = { x: 1, y: 0 }
 r = () => Math.random() * 9 | 0
-t = (a, b) => a.x == b.x & a.y == b.y
-b = (points, targetPoint) => points.some(point => t(point, targetPoint))
+b = (points, targetPoint) => points.some(point => point.x == targetPoint.x & point.y == targetPoint.y)
 p = (points) => { while (b(points, z = { x: r(), y: r() })); return z }
 n = () => f = p(s)
 f = p(s)
@@ -14,7 +13,7 @@ setInterval(() => {
     if ((h.x | h.y) < 0 | h.x > 8 | h.y > 8 | b(s, h))
         _
     s = [h, ...s]
-    t(h, f) ? n() : s.pop()
+    h.x == f.x & h.y == f.y ? n() : s.pop()
     c.clearRect(0, 0, 9, 9)
     c.fillStyle = 'red'
     e(f)
