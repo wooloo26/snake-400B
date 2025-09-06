@@ -1,9 +1,10 @@
 d = document
 g = 9
 r = () => Math.random() * g | 0
+b = (points, z) => points.some(t => t.x == z.x && t.y == z.y)
 p = (points) => {
     do z = { x: r(), y: r() }
-    while (points.some(t => t.x == z.x && t.y == z.y))
+    while (b(points, z))
     return z
 }
 w = 1
@@ -15,7 +16,7 @@ f = p(s)
 e = (point) => c.fillRect(point.x * w, point.y * w, w, w)
 setInterval(() => {
     h = { x: s[0].x + m.x, y: s[0].y + m.y }
-    if ((h.x | h.y) < 0 || h.x >= g || h.y >= g || s.some(t => t.x == h.x && t.y == h.y))
+    if ((h.x | h.y) < 0 || h.x >= g || h.y >= g || b(s, h))
         _
     s = [h, ...s]
     h.x == f.x && h.y == f.y ? n() : s.pop()
